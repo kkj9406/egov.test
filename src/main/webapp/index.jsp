@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <html>
 <head>
-<meta charset="UTF-8"> 
 <title>Pilot Project</title>
 <link type="text/css" rel="stylesheet" href="css/egovframework/sample.css" />
 </head>
