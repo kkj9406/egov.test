@@ -18,17 +18,18 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
-
+    //Autowired 어노테이션으로 멤버 필드에 객체 생성
     @Autowired
     private SampleService sampleService;
 
     /**
      * 사용자로 부터 아이디, 패스워드를 입력받아 인증 성공이면 세션 객체에 계정정보를 담고 
-     * 사원정보리스트 페이지로 포워딩한다. 인증에실패하면 로그인 페이지로 다시 리턴한다.
+     * 게시판 페이지로 포워딩한다. 인증에 실패하면 로그인 페이지로 다시 리턴한다.
      */
-    @RequestMapping("/sample/loginProcess.do")
+    @RequestMapping("/sample/loginProcess.do")//dispatcherservlet에 의해 loginprocess.do요청을 받음
     public String login(HttpServletRequest request, @RequestParam("regUser") String regUser,
             @RequestParam("password") String password) {
+    	//계정정보인 regUser와 password를 파라미터로 받는다.
 
         // TODO [Step 4-1-01] LoginService의 authenticate메소드를 이용하여 
     	// 로긴여부 체크 Account 객체를 리턴 받는다.
@@ -40,12 +41,13 @@ public class LoginController {
          * Attribute로 저장한다. 그리고 "redirect:/loginSuccess.do" 값을 반환한다. null 인경우
          * "login" 반환한다.
          */
-//    	return null;
+    	//return null;
     	
-        if (account != null) {
+        if (account != null) {//계정이 null이 아니면
+        	//세션에 계정정보를 set하고 loginSuccess.do로 리다이렉트
             request.getSession().setAttribute("UserAccount", account);
             return "redirect:/sample/loginSuccess.do";
-        } else {
+        } else {//계정이 null이면 다시 login화면으로 이동
             return "/sample/login";
         }
     	
