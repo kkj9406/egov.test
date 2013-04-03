@@ -52,8 +52,8 @@ public class EgovImgPaginationRenderer extends AbstractPaginationRenderer {
         currentPageLabel = "<strong>{0}</strong>&#160;";
         otherPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">{2}</a>&#160;";
         nextPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" +
-        					"<image src='" + strWebDir + "btn_page_next10.gif' border=0/></a>&#160;";
-        lastPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" +
         					"<image src='" + strWebDir + "btn_page_next1.gif' border=0/></a>&#160;";
+        lastPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" +
+        					"<image src='" + strWebDir + "btn_page_next10.gif' border=0/></a>&#160;";
 	}
 }
