@@ -4,8 +4,8 @@
 
 <sqlMapConfig>
 <settings enhancementEnabled="true" useStatementNamespaces="true" />
-	<sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL.xml"/>
-	<sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Member_SQL.xml"/>
+	<sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_mysql.xml"/>
+	<sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Member_SQL_mysql.xml"/>
     <!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_mysql.xml"/> -->
     <!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_oracle.xml"/> -->
 </sqlMapConfig>

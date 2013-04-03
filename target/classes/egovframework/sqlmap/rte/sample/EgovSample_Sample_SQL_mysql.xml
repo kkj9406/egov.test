@@ -10,23 +10,21 @@
 		<result property="id" column="id"/>
 		<result property="name" column="name"/>
 		<result property="description" column="description"/>
-		<result property="useYn" column="use_yn"/>
-		<result property="regUser" column="reg_user"/>
+		<result property="regUser" column="regUser"/>
+		<result property="date" column="date"/>
 	</resultMap>
 
 	<insert id="sampleDAO.insertSample_S">
 		<![CDATA[
 			INSERT INTO SAMPLE 
-				( ID
-				  , NAME
+				(  NAME
 				  , DESCRIPTION
-				  , USE_YN
-				  , REG_USER )
-			VALUES ( #id#
-				  , #name#
+				  , regUser
+				  , DATE )
+			VALUES ( #name#
 				  , #description#
-				  , #useYn#
-				  , #regUser# )
+				  , #regUser#
+				  , #date# )
 		]]>
 	</insert>
 	
@@ -36,7 +34,6 @@
 			SET ID=#id#
 				, NAME=#name#
 				, DESCRIPTION=#description#
-				, USE_YN=#useYn#
 			WHERE ID=#id#
 		]]>
 	</update>
@@ -51,21 +48,21 @@
 	<select id="sampleDAO.selectSample_S" resultMap="sample">
 		<![CDATA[
 			SELECT
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+				ID, NAME, DESCRIPTION, regUser, DATE
 			FROM SAMPLE 
 			WHERE ID=#id#
 		]]>
 	</select>
 	
+	
 	<select id="sampleDAO.selectSampleList_D" parameterClass="searchVO" resultClass="egovMap">
 
 			SELECT
-				/* ID id, NAME name, DESCRIPTION description, USE_YN useYn, REG_USER regUser */
-				ID, NAME, DESCRIPTION, USE_YN, REG_USER
+				ID, NAME, regUser, DATE
 			FROM SAMPLE
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ID = #searchKeyword#
+				regUser LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
 				NAME LIKE CONCAT('%',#searchKeyword#,'%')
@@ -80,7 +77,7 @@
 			FROM SAMPLE
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ID = #searchKeyword#
+				regUser = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
 				NAME LIKE CONCAT('%',#searchKeyword#,'%')
