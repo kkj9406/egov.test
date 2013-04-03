@@ -98,7 +98,7 @@ function fn_egov_link_page(pageNo){
 			<tr>
 				<td align="center" class="listtd"><c:out value="${result.id}"/></a></td>
 				<td align="left" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.id}"/>')"><c:out value="${result.name}"/>&nbsp;</td>
-				<td align="center" class="listtd"><c:out value="${result.reguser}"/>&nbsp;</td>
+				<td align="center" class="listtd"><c:out value="${result.regUser}"/>&nbsp;</td>
 				<td align="center" class="listtd"><c:out value="${result.date}"/>&nbsp;</td>
 			</tr>
 			</c:forEach>
