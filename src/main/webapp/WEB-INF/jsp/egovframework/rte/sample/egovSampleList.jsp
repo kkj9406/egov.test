@@ -27,7 +27,7 @@
 <title>게시판</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
-<!--
+
 /* 글 수정 화면 function */
 function fn_egov_select(id) {
 	document.listForm.selectedId.value = id;
@@ -54,7 +54,7 @@ function fn_egov_link_page(pageNo){
    	document.listForm.submit();
 }
 
--->
+
 </script>
 </head>
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
@@ -64,7 +64,7 @@ function fn_egov_link_page(pageNo){
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>"> 게시판 </li>
+			<li> 게시판 </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
