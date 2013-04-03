@@ -17,13 +17,11 @@
 	<insert id="sampleDAO.insertSample_S">
 		<![CDATA[
 			INSERT INTO SAMPLE 
-				( ID
-				  , NAME
+				(  NAME
 				  , DESCRIPTION
 				  , regUser
 				  , DATE )
-			VALUES ( NEXT VALUE FOR SAMPLE_SEQ
-				  , #name#
+			VALUES ( #name#
 				  , #description#
 				  , #regUser#
 				  , #date# )
