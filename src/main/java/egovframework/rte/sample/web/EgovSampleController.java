@@ -53,11 +53,30 @@ import egovframework.rte.sample.service.SampleVO;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
-
+/* SessionAttributes어노테이션은 상태유지를 위해 사용하는 어노테이션으로
+ * Controller가 생성하는 모델 정보중 @SessionAttributes에 지정한 것과 동일한
+ * 것이 있다면 이를 Session에 저장. 그리고 @ModelAttribute가 지정된 파라미터
+ * 가 있을 때 이 파라미터에 전달해줄 오브젝트를 그 세션에서 가져온다.
+ * 원래 @ModelAttribute는 해당 타입의 새 오브젝트를 생성한 후 요청 파라미터
+ * 값을 프로퍼티에 바인딩하지만 @SessionAttributes와 @ModelAttribute의 모델
+ * 이름이 동일하면 먼저 Session에 같은 이름의 오브젝트가 존재하는지 확인한다.
+ * 만약 존재하면 모델 오브젝트를 새로 만들지 않고 Session에 있는 오브젝트를
+ * 가져와 @ModelAttribute 파라미터로 전달할 오브젝트로 사용한다. 
+ * @SessionAttributes는 하나 이상의 모델을 Session에 저장하도록 지정할 수 있다. 
+ * @SessionAttributes 의 설정은 클래스의 모든 메소드에 적용된다. Controller 
+ * 메소드에 의해 생성되는 모든 종류의 모델 오브젝트는 @SessionAttributes에 
+ * 저장될 이름을 갖고 있는지 확인된다. 따라서 Model 파라미터를 이용해 저장한 
+ * 모델이든, 단일 모델 오브젝트의 리턴을 통해 만들어지는 모델이든, @ModelAttribute 
+ * 로 정의된 모델이든 상관없이 모두 @SessionAttributes의 적용 후보가 된다. 
+ * 단, @SessionAttributes의 기본 구현인 HTTP Session을 이용한 Session 저장소는 
+ * 모델 이름을 Session에 저장할 애트리뷰트 이름으로 사용한다는 점을 주의하자. 
+ * 따라서 @SessionAttributes에 사용하는 모델 이름에 충돌이 발생하지 않도록 주의해야 한다.
+*/
 @Controller
 @SessionAttributes(types=SampleVO.class)
 public class EgovSampleController {
 	
+	//@Resource로 의존하는 빈 객체 전달.name속성에 빈 객체 이름 입력하면 자동으로 생성.
 	/** EgovSampleService */
     @Resource(name = "sampleService")
     private EgovSampleService sampleService;
@@ -83,12 +102,12 @@ public class EgovSampleController {
             throws Exception {
     	
     	/** EgovPropertyService.sample */
-    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
+    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));//프로퍼티값을 받아 SET
     	searchVO.setPageSize(propertiesService.getInt("pageSize"));
     	
     	/** pageing setting */
-    	PaginationInfo paginationInfo = new PaginationInfo();
-		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
+    	PaginationInfo paginationInfo = new PaginationInfo();//페이지계산을 위한 객체 생성
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());//페이지정보 set
 		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
 		paginationInfo.setPageSize(searchVO.getPageSize());
 		
@@ -96,10 +115,11 @@ public class EgovSampleController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List sampleList = sampleService.selectSampleList(searchVO);
+        List sampleList = sampleService.selectSampleList(searchVO);//글목록을 list형식으로 가져옴
+        //resultList라는 이름의 어트리뷰트에 sampleList를 어트리뷰트값으로 add
         model.addAttribute("resultList", sampleList);
         
-        int totCnt = sampleService.selectSampleListTotCnt(searchVO);
+        int totCnt = sampleService.selectSampleListTotCnt(searchVO);//글 총수
 		paginationInfo.setTotalRecordCount(totCnt);
         model.addAttribute("paginationInfo", paginationInfo);
         
