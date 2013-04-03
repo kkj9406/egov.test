@@ -102,7 +102,7 @@ public class EgovSampleController {
             throws Exception {
     	
     	/** EgovPropertyService.sample */
-    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));//프로퍼티값을 받아 SET
+    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));//프로퍼티값(context-properties.xml)을 받아 SET
     	searchVO.setPageSize(propertiesService.getInt("pageSize"));
     	
     	/** pageing setting */
