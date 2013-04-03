@@ -21,7 +21,9 @@ public class AuthenticInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {		
-		
+		// HandlerInterceptorAdapter는 preHandle, postHandle, afterCompletion을 지원하고
+		// 계정이 세션에 있는지 검사하여 리다이렉트 시키는 작업은 요청 전에 해야하므로
+		// preHandle 클래스를 오버라이드하여 사용한다.
 		Account account = (Account) WebUtils.getSessionAttribute(request, "UserAccount");
 		
 		if(account!=null){
