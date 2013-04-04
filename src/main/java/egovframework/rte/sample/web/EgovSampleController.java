@@ -52,16 +52,25 @@ import egovframework.rte.sample.service.SampleVO;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
-/* SessionAttributes어노테이션은 상태유지를 위해 사용하는 어노테이션으로
+/* @SessionAttributes은 상태유지를 위해 사용하는 어노테이션으로
  * Controller가 생성하는 모델 정보중 @SessionAttributes에 지정한 것과 동일한
  * 것이 있다면 이를 Session에 저장. 
+ * 
  * @ModelAttribute는 지정된 파라미터가 있을 때 이 파라미터에 전달해줄
  * 오브젝트를 그 세션에서 가져온다.
+ * @ModelAttribute (page scope) 입력폼에서 필요로하는 데이터를 전달하기위한 
+ * referenceDate() 에 어노테이션 버젼
+ * HTTP Request에 포함된 파라미터를 Model 객체로 바인딩함
+ * @ModelAttribute의 'name'으로 정의한 Model객체를 다음 View에서 사용 가능
+ * 데이터를 화면에 똑같이 살리고싶을때 사용
+ * Spring 커스텀 태그와 같이 사용
+ * 
  * 원래 @ModelAttribute는 해당 타입의 새 오브젝트를 생성한 후 요청 파라미터
  * 값을 프로퍼티에 바인딩하지만 @SessionAttributes와 @ModelAttribute의 모델
  * 이름이 동일하면 먼저 Session에 같은 이름의 오브젝트가 존재하는지 확인한다.
  * 만약 존재하면 모델 오브젝트를 새로 만들지 않고 Session에 있는 오브젝트를
  * 가져와 @ModelAttribute 파라미터로 전달할 오브젝트로 사용한다. 
+ * 
  * @SessionAttributes는 하나 이상의 모델을 Session에 저장하도록 지정할 수 있다. 
  * @SessionAttributes 의 설정은 클래스의 모든 메소드에 적용된다. Controller 
  * 메소드에 의해 생성되는 모든 종류의 모델 오브젝트는 @SessionAttributes에 
