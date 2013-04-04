@@ -40,7 +40,8 @@ import egovframework.rte.sample.service.SampleVO;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
-
+//@Repository("smpleDAO")로 dao클래스를 찾아갈 id값 명시.ibatis에서 이id로 접근가능
+//EgovAbstractDAO를 상속받아 가능함.
 @Repository("sampleDAO")
 public class SampleDAO extends EgovAbstractDAO {
 
