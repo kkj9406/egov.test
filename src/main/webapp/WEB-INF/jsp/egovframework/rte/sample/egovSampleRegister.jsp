@@ -70,6 +70,7 @@ function fn_egov_save() {
 	style="text-align: center; margin: 0 auto; display: inline; padding-top: 100px;">
 
 	<form:form commandName="sampleVO" name="detailForm">
+	<!-- commandName은 vo객체를 말한다. form tag를 사용한 부분과의 매핑을 위해 필요한 옵션. -->
 		<div id="content_pop">
 			<!-- 타이틀 -->
 			<div id="title">
