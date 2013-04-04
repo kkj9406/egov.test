@@ -1,5 +1,7 @@
 /DATABASE
 DATABASE/
+/build
+build/
 /target
 target/
 /.settings
