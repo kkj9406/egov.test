@@ -26,7 +26,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty sampleVO.id ? '등록' : '수정'}" />
 <c:set var="userId" value="${sampleVO.regUser}" />
-<c:set var="idFlag"
+<c:set var="isUserSame"
 	value="${userId==sessionScope.UserAccount.regUser ? 'true' : 'false'}" />
 <title>Sample <c:out value="${registerFlag}" />
 </title>
@@ -97,7 +97,7 @@ function fn_egov_save() {
 									cssClass="essentiality" maxlength="10" readonly="true" /></td>
 						</tr>
 						<!-- 같은 id라면 수정가능 -->
-						<c:if test="${idFlag=='true'}">
+						<c:if test="${isUserSame=='true'}">
 							<tr>
 								<td class="tbtd_caption">제목</td>
 								<td class="tbtd_content"><form:input path="name"
@@ -113,7 +113,7 @@ function fn_egov_save() {
 						</c:if>
 
 						<!-- 다른 id라면 읽기전용 -->
-						<c:if test="${idFlag=='false'}">
+						<c:if test="${isUserSame=='false'}">
 							<tr>
 								<td class="tbtd_caption">제목</td>
 								<td class="tbtd_content"><form:input path="name"
@@ -170,7 +170,7 @@ function fn_egov_save() {
 							style="margin-left: 6px;"></span></li>
 					<c:if test="${registerFlag == '수정'}">
 						<!-- 같은 id라면 수정 / 삭제가능 -->
-						<c:if test="${idFlag=='true'}">
+						<c:if test="${isUserSame=='true'}">
 							<li><span class="btn_blue_l"><a
 									href="javascript:fn_egov_save();"><c:out
 											value='${registerFlag}' /></a><img
