@@ -59,6 +59,7 @@ function fn_egov_link_page(pageNo){
 </head>
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
 <form:form commandName="searchVO" name="listForm" method="post">
+<!-- commandName은 vo객체를 말한다. form tag를 사용한 부분과의 매핑을 위해 필요한 옵션. -->
 <input type="hidden" name="selectedId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
