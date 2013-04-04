@@ -204,7 +204,7 @@ function fn_egov_save() {
 				</ul>
 			</div>
 		</div>
-		<!-- 검색조건 유지 -->
+		<!--글 수정/삭제 후 검색조건 유지 -->
 		<input type="hidden" name="searchCondition"
 			value="<c:out value='${searchVO.searchCondition}'/>" />
 		<input type="hidden" name="searchKeyword"
