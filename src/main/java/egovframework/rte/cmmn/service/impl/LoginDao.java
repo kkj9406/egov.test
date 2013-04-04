@@ -10,6 +10,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import egovframework.rte.cmmn.vo.Account;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
+//@Repository("loginDao")로 dao클래스를 찾아갈 id값 명시 
 @Repository("loginDao")
 public class LoginDao  extends EgovAbstractDAO {
 	
