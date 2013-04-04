@@ -54,8 +54,9 @@ import egovframework.rte.sample.service.SampleVO;
  */
 /* SessionAttributes어노테이션은 상태유지를 위해 사용하는 어노테이션으로
  * Controller가 생성하는 모델 정보중 @SessionAttributes에 지정한 것과 동일한
- * 것이 있다면 이를 Session에 저장. 그리고 @ModelAttribute가 지정된 파라미터
- * 가 있을 때 이 파라미터에 전달해줄 오브젝트를 그 세션에서 가져온다.
+ * 것이 있다면 이를 Session에 저장. 
+ * @ModelAttribute는 지정된 파라미터가 있을 때 이 파라미터에 전달해줄
+ * 오브젝트를 그 세션에서 가져온다.
  * 원래 @ModelAttribute는 해당 타입의 새 오브젝트를 생성한 후 요청 파라미터
  * 값을 프로퍼티에 바인딩하지만 @SessionAttributes와 @ModelAttribute의 모델
  * 이름이 동일하면 먼저 Session에 같은 이름의 오브젝트가 존재하는지 확인한다.
@@ -75,7 +76,7 @@ import egovframework.rte.sample.service.SampleVO;
 @SessionAttributes(types=SampleVO.class)
 public class EgovSampleController {
 	
-	//@Resource로 의존하는 빈 객체 전달.name속성에 빈 객체 이름 입력하면 자동으로 생성.
+	//@Resource로 의존하는 빈 객체 전달.사용할 service클래스를 @Resource을 이용하여 받아온다.
 	/** EgovSampleService */
     @Resource(name = "sampleService")
     private EgovSampleService sampleService;
@@ -94,6 +95,7 @@ public class EgovSampleController {
 	 * @param model
 	 * @return "/sample/egovSampleList"
 	 * @exception Exception
+	 * 최초 게시판 리스트조회, 검색어 조회시 사용
 	 */
     @RequestMapping(value="/sample/egovSampleList.do")
     public String selectSampleList(@ModelAttribute("searchVO") SampleDefaultVO searchVO, 
@@ -191,10 +193,12 @@ public class EgovSampleController {
 	 * @param model
 	 * @return "/sample/egovSampleRegister"
 	 * @exception Exception
+	 * egovSampleList.jsp의 fn_egov_select(id)가 호출
 	 */
     @RequestMapping("/sample/updateSampleView.do")
     public String updateSampleView(
-            @RequestParam("selectedId") String id ,
+            @RequestParam("selectedId") String id ,//파라미터로 전달된 글번호id
+            //serachVO라는 이름으로 목록 조회조건이 모델정보에 담아진다.
             @ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model)
             throws Exception {
         SampleVO sampleVO = new SampleVO();
