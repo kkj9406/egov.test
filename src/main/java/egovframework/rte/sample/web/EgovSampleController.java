@@ -36,7 +36,6 @@ import egovframework.rte.sample.service.EgovSampleService;
 import egovframework.rte.sample.service.SampleDefaultVO;
 import egovframework.rte.sample.service.SampleVO;
 
-
 /**  
  * @Class Name : EgovSampleController.java
  * @Description : EgovSample Controller Class
