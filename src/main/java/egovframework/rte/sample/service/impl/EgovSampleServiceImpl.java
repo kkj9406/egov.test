@@ -46,18 +46,18 @@ import egovframework.rte.sample.service.SampleVO;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
-
+//@Service는 구현할 서비스 클래스를 정의해준후 implements시킨다.
 @Service("sampleService")
 public class EgovSampleServiceImpl extends AbstractServiceImpl implements
         EgovSampleService {
-	
+	//@Resouce어노테이션을 사용 사용할 dao클래스를 생성
 	/** SampleDAO */
     @Resource(name="sampleDAO")
     private SampleDAO sampleDAO;
     
-    /** ID Generation */
+    /** ID Generation 
     @Resource(name="egovIdGnrService")    
-    private EgovIdGnrService egovIdGnrService;
+    private EgovIdGnrService egovIdGnrService;*/
 
 	/**
 	 * 글을 등록한다.
