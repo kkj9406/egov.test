@@ -131,7 +131,7 @@ public class EgovSampleController {
         
         int totCnt = sampleService.selectSampleListTotCnt(searchVO);//글 총수
 		paginationInfo.setTotalRecordCount(totCnt);//글의 총수 set
-        model.addAttribute("paginationInfo", paginationInfo);//jsp에서 paginationInfo로 접근할수있다.
+        model.addAttribute("paginationInfo", paginationInfo);//jsp(view)에서 paginationInfo로 접근할수있다.
         
         return "/sample/egovSampleList";
     } 
