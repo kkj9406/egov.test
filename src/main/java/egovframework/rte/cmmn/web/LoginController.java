@@ -40,9 +40,7 @@ public class LoginController {
          * request.getSession() 메소드를 통해 Session을 구해 UserAccount 이름으로 Session 에
          * Attribute로 저장한다. 그리고 "redirect:/loginSuccess.do" 값을 반환한다. null 인경우
          * "login" 반환한다.
-         */
-    	//return null;
-    	
+         */    	
         if (account != null) {//계정이 null이 아니면
         	//세션에 계정정보를 set하고 loginSuccess.do로 리다이렉트
             request.getSession().setAttribute("UserAccount", account);
@@ -55,7 +53,7 @@ public class LoginController {
 
     // loginSuccess.do 로 호출된 처리
     // (@RequestMapping(value="/loginSuccess.do", method=RequestMethod.GET) 를 위한
-    // 메소드(loginSuccess) 를 void 타입의 public 메소드를 만들어라.
+    // 메소드(loginSuccess) 를 void 타입의 public 메소드
     @RequestMapping(value = "/sample/loginSuccess.do", method = RequestMethod.GET)
     public void loginSuccess() {
     }
