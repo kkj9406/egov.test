@@ -73,7 +73,13 @@
 		</property>
 		<property name="urls">
 			<set>
-				<value>/sample/egovSampleList.do</value>				
+				<value>/sample/egovSampleList.do</value>
+				<value>/sample/selectSample.do</value>
+				<value>/sample/addSampleView.do</value>
+				<value>/sample/addSample.do</value>
+				<value>/sample/updateSampleView.do</value>
+				<value>/sample/updateSample.do</value>
+				<value>/sample/deleteSample.do</value>
 			</set>
 		</property>
 	</bean>
