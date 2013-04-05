@@ -112,8 +112,8 @@ public class EgovSampleController {
             throws Exception {
     	
     	/** EgovPropertyService.sample */
-    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));//프로퍼티값(context-properties.xml)을 받아 SET
-    	searchVO.setPageSize(propertiesService.getInt("pageSize"));
+    	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));//프로퍼티값
+    	searchVO.setPageSize(propertiesService.getInt("pageSize"));//(context-properties.xml)을 받아 SET
     	
     	/** pageing setting */
     	PaginationInfo paginationInfo = new PaginationInfo();//페이지계산을 위한 객체 생성
@@ -126,7 +126,7 @@ public class EgovSampleController {
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());//페이지당 게시되는 게시물수
 		
         List sampleList = sampleService.selectSampleList(searchVO);//글목록을 list형식으로 가져옴
-        //resultList라는 이름의 어트리뷰트에 sampleList를 어트리뷰트값으로 add
+        //"resultList"라는 이름의 어트리뷰트에 sampleList를 어트리뷰트값으로 add
         model.addAttribute("resultList", sampleList);
         
         int totCnt = sampleService.selectSampleListTotCnt(searchVO);//글 총수
@@ -206,7 +206,7 @@ public class EgovSampleController {
 	 */
     @RequestMapping("/sample/updateSampleView.do")
     public String updateSampleView(
-            @RequestParam("selectedId") String id ,//파라미터로 전달된 글번호id
+            @RequestParam("selectedId") String id ,//파라미터로 전달할 글번호id
             //serachVO라는 이름으로 목록 조회조건이 모델정보에 담아진다.
             @ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model)
             throws Exception {
