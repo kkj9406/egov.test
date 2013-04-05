@@ -29,6 +29,7 @@
 <c:set var="userId" value="${sampleVO.regUser}" />
 <c:set var="isUserSame"
 	value="${userId==sessionScope.UserAccount.regUser ? 'true' : 'false'}" />
+<!--// 글 수정/보기/등록 판별을 위한 변수 초기화 -->
 <!-- title. 변수를 비교하여 페이지의 상태를 결정한다. -->
 <title>글 <c:if test="${isUserSame=='false' }">
 		<c:if test="${userId==null}">
@@ -41,6 +42,7 @@
 		<c:out value="${registerFlag}" />
 	</c:if>
 </title>
+<!--// title. 변수를 비교하여 페이지의 상태를 결정한다. -->
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/css/egovframework/sample.css'/>" />
 
@@ -224,7 +226,7 @@ function fn_egov_save() {
 				</ul>
 			</div>
 		</div>
-		<!--글 수정/삭제 후 검색조건 유지 -->
+		<!--글 수정/삭제 후 검색조건 유지. @ModelAttribute("searchVO")로 전달된 모델정보-->
 		<input type="hidden" name="searchCondition"
 			value="<c:out value='${searchVO.searchCondition}'/>" />
 		<input type="hidden" name="searchKeyword"
