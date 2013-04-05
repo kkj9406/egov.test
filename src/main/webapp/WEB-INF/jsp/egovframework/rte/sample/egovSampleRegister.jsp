@@ -24,11 +24,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 글 수정/보기/등록 판별을 위한 변수 초기화 -->
 <c:set var="registerFlag" value="${empty sampleVO.id ? '등록' : '수정'}" />
 <c:set var="userId" value="${sampleVO.regUser}" />
 <c:set var="isUserSame"
 	value="${userId==sessionScope.UserAccount.regUser ? 'true' : 'false'}" />
-<title>Sample <c:out value="${registerFlag}" />
+<!-- title. 변수를 비교하여 페이지의 상태를 결정한다. -->
+<title>글 <c:if test="${isUserSame=='false' }">
+		<c:if test="${userId==null}">
+			<c:out value="${registerFlag}"></c:out>
+		</c:if>
+		<c:if test="${userId!=null}">
+			<c:out value="보기" />
+		</c:if>
+	</c:if> <c:if test="${isUserSame=='true' }">
+		<c:out value="${registerFlag}" />
+	</c:if>
 </title>
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/css/egovframework/sample.css'/>" />
@@ -39,7 +50,7 @@
 	xhtml="true" cdata="false" />
 
 <script type="text/javaScript" language="javascript" defer="defer">
-<!--
+
 /* 글 목록 화면 function */
 function fn_egov_selectList() {
    	document.detailForm.action = "<c:url value='/sample/egovSampleList.do'/>";
@@ -63,21 +74,29 @@ function fn_egov_save() {
     }
 }
 
--->
 </script>
 </head>
 <body
 	style="text-align: center; margin: 0 auto; display: inline; padding-top: 100px;">
 
 	<form:form commandName="sampleVO" name="detailForm">
-	<!-- commandName은 vo객체를 말한다. form tag를 사용한 부분과의 매핑을 위해 필요한 옵션. -->
+		<!-- commandName은 vo객체를 말한다. form tag를 사용한 부분과의 매핑을 위해 필요한 옵션. -->
 		<div id="content_pop">
 			<!-- 타이틀 -->
 			<div id="title">
 				<ul>
 					<li><img
 						src="<c:url value='/images/egovframework/rte/title_dot.gif'/>">
-						글<c:out value="${registerFlag}" /></li>
+						글<c:if test="${isUserSame=='false' }">
+							<c:if test="${userId==null}">
+								<c:out value="${registerFlag}"></c:out>
+							</c:if>
+							<c:if test="${userId!=null}">
+								<c:out value="보기" />
+							</c:if>
+						</c:if> <c:if test="${isUserSame=='true' }">
+							<c:out value="${registerFlag}" />
+						</c:if></li>
 				</ul>
 			</div>
 			<!-- // 타이틀 -->
