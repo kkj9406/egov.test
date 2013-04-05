@@ -53,7 +53,7 @@ public class LoginController {
 
     // loginSuccess.do 로 호출된 처리
     // (@RequestMapping(value="/loginSuccess.do", method=RequestMethod.GET) 를 위한
-    // 메소드(loginSuccess) 를 void 타입의 public 메소드
+    // 메소드(loginSuccess) 를 void 타입의 public 메소드로 작성
     @RequestMapping(value = "/sample/loginSuccess.do", method = RequestMethod.GET)
     public void loginSuccess() {
     }
