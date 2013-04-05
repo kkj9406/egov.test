@@ -29,7 +29,7 @@
 <c:set var="userId" value="${sampleVO.regUser}" />
 <c:set var="isUserSame"
 	value="${userId==sessionScope.UserAccount.regUser ? 'true' : 'false'}" />
-<!--// 글 수정/보기/등록 판별을 위한 변수 초기화 -->
+
 <!-- title. 변수를 비교하여 페이지의 상태를 결정한다. -->
 <title>글 <c:if test="${isUserSame=='false' }">
 		<c:if test="${userId==null}">
@@ -42,11 +42,11 @@
 		<c:out value="${registerFlag}" />
 	</c:if>
 </title>
-<!--// title. 변수를 비교하여 페이지의 상태를 결정한다. -->
+
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/css/egovframework/sample.css'/>" />
 
-<!--For Commons Validator Client Side-->
+<!-- For Commons Validator Client Side -->
 <script type="text/javascript" src="<c:url value='/cmmn/validator.do'/>"></script>
 <validator:javascript formName="sampleVO" staticJavascript="false"
 	xhtml="true" cdata="false" />
@@ -220,9 +220,7 @@ function fn_egov_save() {
 								href="javascript:document.detailForm.reset();">원래대로</a><img
 								src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>"
 								style="margin-left: 6px;"></span></li>
-
 					</c:if>
-
 				</ul>
 			</div>
 		</div>
