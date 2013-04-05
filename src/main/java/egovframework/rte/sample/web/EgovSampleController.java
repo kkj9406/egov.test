@@ -118,12 +118,12 @@ public class EgovSampleController {
     	/** pageing setting */
     	PaginationInfo paginationInfo = new PaginationInfo();//페이지계산을 위한 객체 생성
 		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());//페이지정보 set
-		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
-		paginationInfo.setPageSize(searchVO.getPageSize());
+		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());//페이지당 게시되는 게시물수set
+		paginationInfo.setPageSize(searchVO.getPageSize());//페이지리스트에 게시되는 페이지수set
 		
-		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
-		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
-		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());//페이지리스트의 첫번호
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());//페이지리스트의 마지막번호
+		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());//페이지당 게시되는 게시물수
 		
         List sampleList = sampleService.selectSampleList(searchVO);//글목록을 list형식으로 가져옴
         //resultList라는 이름의 어트리뷰트에 sampleList를 어트리뷰트값으로 add
