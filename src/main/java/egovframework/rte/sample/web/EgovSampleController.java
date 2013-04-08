@@ -86,6 +86,7 @@ import egovframework.rte.sample.service.SampleVO;
 public class EgovSampleController {
 	
 	//@Resource로 의존하는 빈 객체 전달.사용할 service클래스를 @Resource을 이용하여 받아온다.
+	//이름을 이용해 빈을 지정하고 싶을때 @Resource사용. 아니라면 @Autowired(타입과 한정자만 사용)
 	/** EgovSampleService */
     @Resource(name = "sampleService")
     private EgovSampleService sampleService;
