@@ -42,8 +42,7 @@
         <property name="webBindingInitializer">
             <bean class="egovframework.rte.cmmn.web.EgovBindingInitializer"/>
         </property>
-    </bean>
-   
+    </bean>   
     
     <!--
         - This bean resolves specific types of exceptions to corresponding logical 
@@ -83,7 +82,7 @@
 			</set>
 		</property>
 	</bean>
-	 
+		 
     <!--
         - This bean configures the 'prefix' and 'suffix' properties of 
         - InternalResourceViewResolver, which resolves logical view names 
