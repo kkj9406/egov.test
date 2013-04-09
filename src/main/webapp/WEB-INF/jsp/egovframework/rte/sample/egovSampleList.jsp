@@ -53,7 +53,11 @@ function fn_egov_link_page(pageNo){
 	document.listForm.action = "<c:url value='/sample/egovSampleList.do'/>";
    	document.listForm.submit();
 }
-
+/* 로그아웃 function */
+function fn_egov_logout(){
+	document.listForm.action = "<c:url value='/sample/logout.do'/>";
+   	document.listForm.submit();
+}
 
 </script>
 </head>
@@ -67,10 +71,14 @@ function fn_egov_link_page(pageNo){
 	<div id="title">
 		<ul>
 			<li> 게시판 </li>
-		</ul>
+		</ul>		
 	</div>
 	<!-- // 타이틀 -->
 	<div id="search">
+	<ul>		
+		<li><span class="btn_blue_l"><a href="javascript:fn_egov_logout();">로그아웃</a>
+		<img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" style="margin-left:6px;">
+		</span></li></ul>
 		<ul>
 		<li>
 			<form:select path="searchCondition" cssClass="use">
