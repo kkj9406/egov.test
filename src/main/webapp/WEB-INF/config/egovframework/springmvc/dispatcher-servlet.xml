@@ -11,9 +11,8 @@
                 <task:executor id="executor" pool-size="5-10" keep-alive="5" queue-capacity="255"
                 rejection-policy="ABORT" />
                 <task:scheduler id="scheduler" pool-size="10" />
-                <task:annotation-driven executor="executor" scheduler="scheduler" />
+                <task:annotation-driven executor="executor" scheduler="scheduler" />                
                 
-
     <!--
         - The controllers are autodetected POJOs labeled with the @Controller annotation.
     -->
