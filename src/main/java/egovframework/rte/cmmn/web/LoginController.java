@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.rte.cmmn.service.LoginService;
 import egovframework.rte.cmmn.service.SampleService;
+import egovframework.rte.cmmn.service.TestService;
 import egovframework.rte.cmmn.vo.Account;
 
 
@@ -22,6 +23,11 @@ public class LoginController {
     //Autowired 어노테이션으로 멤버 필드에 객체 생성
     @Autowired
     private SampleService sampleService;
+    //같은 타입의 객체 두개 생성. 하지만 @Qualifier가 없이도 예외가 발생되지 않음. 이유가 뭐지????
+    @Autowired
+    private TestService examService;
+    @Autowired
+    private TestService testService;
 
     /**
      * 사용자로 부터 아이디, 패스워드를 입력받아 인증 성공이면 세션 객체에 계정정보를 담고 
@@ -83,6 +89,12 @@ public class LoginController {
         sampleService.invokeMethodAException();
         
         return null;
+    }
+    
+    @RequestMapping("/sample/test.do")
+    public void test(){
+    	examService.doService();
+    	testService.doService();
     }
     
 }
