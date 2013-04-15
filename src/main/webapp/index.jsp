@@ -9,7 +9,7 @@
 <br>
 <br>
 <a href="/test/sample/egovSampleList.do">Board Page</a><br>
-<a href="/test/sample/login.do">Login Page</a><br>
-<a href="/test/sample/test.do">test하기</a>
+<a href="/test/sample/login.do">Login Page</a><br><br><br><br>
+<a href="/test/sample/test_autowired.do">@Autowired test하기</a><br>
 </body>
 </html>

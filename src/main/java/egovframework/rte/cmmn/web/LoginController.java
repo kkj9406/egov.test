@@ -91,10 +91,10 @@ public class LoginController {
         return null;
     }
     
-    @RequestMapping("/sample/test.do")
+    //@Autowired 테스트용
+    @RequestMapping("/sample/test_autowired.do")
     public void test(){
     	examService.doService();
     	testService.doService();
     }
-    
 }
