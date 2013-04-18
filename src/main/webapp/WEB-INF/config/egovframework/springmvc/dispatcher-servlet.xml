@@ -21,6 +21,11 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
+    
+    <!-- @Qualifier 테스트용 빈 등록 -->
+    <bean name="examService" class="egovframework.rte.cmmn.service.impl.ExamServiceImpl" />
+    <bean name="testService" class="egovframework.rte.cmmn.service.impl.TestServiceImpl" />
+    
     <bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="customArgumentResolvers">

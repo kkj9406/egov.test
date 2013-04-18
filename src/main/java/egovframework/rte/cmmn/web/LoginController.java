@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,9 +25,12 @@ public class LoginController {
     @Autowired
     private SampleService sampleService;
     //같은 타입의 객체 두개 생성. 하지만 @Qualifier가 없이도 예외가 발생되지 않음. 이유가 뭐지????
+    //이유는 @Service때문이었음;;;;;;;;;;;;;;;;;;;;;;
     @Autowired
+    @Qualifier("testService")
     private TestService examService;
     @Autowired
+    @Qualifier("examService")
     private TestService testService;
 
     /**
@@ -91,7 +95,7 @@ public class LoginController {
         return null;
     }
     
-    //@Autowired 테스트용
+    //@Autowired, @Qualifier, @Service 테스트용
     @RequestMapping("/sample/test_autowired.do")
     public void test(){
     	examService.doService();
